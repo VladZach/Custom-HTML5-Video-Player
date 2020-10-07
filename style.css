@@ -1,0 +1,32 @@
+body {
+ margin: 0;
+ padding: 0;
+ height: 100vh;
+ display: flex;
+ justify-content: center;
+ align-items: center;
+}
+.player {
+  position: relative;
+  height: 280px;
+  overflow: hidden;
+}
+.player:hover > .player__controls {
+  transform: translateY(0);
+}
+.player__controls {
+  position: absolute;
+  transform: translateY(30px);
+  bottom: 0;
+  width: 100%;
+  transition-duration: .6s;
+  height: 35px;
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+}
+.progress {
+  flex-basis: 100%;
+  background-color: gray;
+  height: 15px
+}
