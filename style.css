@@ -18,16 +18,40 @@ body {
   transform: translateY(30px);
   bottom: 0;
   width: 100%;
+  z-index: 3;
   transition-duration: .6s;
   height: 35px;
   display: flex;
   justify-content: space-around;
   flex-wrap: wrap;
+  background-color: gray
 }
 .progress {
   flex-basis: 100%;
-  background-color: gray;
+  background-color: darkgray;
   height: 15px
+}
+
+.player__button {
+  background: none;
+  border: none;
+  padding: 0;
+  color: gainsboro;
+  font-weight: bold;
+  outline: none;
+  transition: all .3s;
+  line-height: 20px
+}
+
+.player__button span {
+  vertical-align: middle;
+}
+
+
+.player__button:hover {
+  color: white;
+  transition: all .3s;
+  cursor: pointer
 }
 
 .progress__filled {
@@ -36,3 +60,18 @@ body {
   background-color: lightyellow;
   /* transition-duration: .35s; */
 }
+
+
+.veil {
+  position: absolute;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  transition: all .2s;
+  background-color: black;
+  z-index: 2;
+}
+
+
