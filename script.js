@@ -6,10 +6,12 @@ const audioRange = document.querySelector('[name="volume"]')
 const playbackRate = document.querySelector('[name="playbackRate"]')
 const veil = document.querySelector('.veil')
 const playerIcon = document.querySelector('.player__icon')
+const progressFilling = document.querySelector('.progress__filled')
+
 let previousTime = 0
-let progressFilling = document.querySelector('.progress__filled')
 let isPlaying = false
 let isEnded = false
+
 function togglePlaying () {
   isPlaying = !isPlaying
   if (isPlaying) {
@@ -58,14 +60,14 @@ function changePlaybackRate(e) {
 }
 
 function endVideo (e) {
-  veil.style.opacity = .5
+  veil.style.opacity = .3
   playButton.textContent = '🔃'
   isPlaying = false
   isEnded = true
 }
 
 function startLoad() {
-  veil.style.opacity = .5
+  veil.style.opacity = .3
 }
 
 function endLoad() {
@@ -73,15 +75,12 @@ function endLoad() {
 }
 
 progressBar.addEventListener('click', moveToTime)
-video.addEventListener('timeupdate', updateProgressBar)
 veil.addEventListener('click', togglePlaying)
 playButton.addEventListener('click', togglePlaying)
 skipButtons.forEach((element) => element.addEventListener('click', skipTime))
 audioRange.addEventListener('input', changeVolume)
 playbackRate.addEventListener('input', changePlaybackRate)
 video.addEventListener('ended', endVideo)
-
-
-
 video.addEventListener('seeking', startLoad)
 video.addEventListener('seeked', endLoad) 
+video.addEventListener('timeupdate', updateProgressBar)
